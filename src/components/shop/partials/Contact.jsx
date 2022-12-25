@@ -1,4 +1,6 @@
 import React from "react";
+import Footer from "./Footer";
+import Navber from "./Navber";
 
 const Contact = () => {
   return (
@@ -6,6 +8,7 @@ const Contact = () => {
       {/* Contact us form here */}
       {/* clip-path: polygon(27% 5%, 100% 1%, 100% 50%, 100% 100%, 0 100%, 0 3%); */}
       <div className="container my-24 px-6 mx-auto">
+        <Navber />
         <section className="mb-32 text-gray-800 text-center">
           <div className="px-6 py-12 md:px-12">
             <div className="container mx-auto xl:px-32">
@@ -74,6 +77,7 @@ const Contact = () => {
             </div>
           </div>
         </section>
+        <Footer />
       </div>
     </>
   );

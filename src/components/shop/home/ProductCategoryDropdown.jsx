@@ -16,7 +16,10 @@ const CategoryList = () => {
   const { data } = useContext(HomeContext);
   const [categories, setCategories] = useState(null);
 
-  const [productListByCategory, setProductListByCategory] = useState([]);
+  const [selectedCategoryProducts, setSelectedCategoryProducts] = useState({
+    selectedCategoryId: "",
+    products: [],
+  });
 
   useEffect(() => {
     fetchData();
@@ -27,6 +30,7 @@ const CategoryList = () => {
       let responseData = await getAllCategory();
       if (responseData && responseData.Categories) {
         setCategories(responseData.Categories);
+        fetchProductsByCategory(responseData.Categories[0]?._id);
       }
     } catch (error) {
       console.log(error);
@@ -39,12 +43,15 @@ const CategoryList = () => {
 
       console.log(products.Products);
 
-      setProductListByCategory(products.Products);
+      setSelectedCategoryProducts({
+        selectedCategoryId: categoryId,
+        products: products.Products,
+      });
     } catch (err) {}
   }
 
   return (
-    <div className={`${data.categoryListDropdown ? "" : "hidden"} my-4`}>
+    <div className="my-4">
       <hr />
       <div className="py-1 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
         {categories && categories.length > 0 ? (
@@ -53,12 +60,12 @@ const CategoryList = () => {
               <Fragment key={index}>
                 <div
                   onClick={() => fetchProductsByCategory(item._id)}
-                  className="col-span-1 m-2 flex flex-col items-center justify-center space-y-2 cursor-pointer"
+                  className={
+                    selectedCategoryProducts.selectedCategoryId === item._id
+                      ? `col-span-1 m-2 bg-orange-500 rounded text-white flex flex-col items-center justify-center space-y-2 cursor-pointer`
+                      : `col-span-1 m-2 flex flex-col items-center justify-center space-y-2 cursor-pointer`
+                  }
                 >
-                  {/* <img
-                    src={`${apiURL}/uploads/categories/${item.cImage}`}
-                    alt="pic"
-                  /> */}
                   <div className="font-medium">{item.cName}</div>
                 </div>
               </Fragment>
@@ -69,13 +76,14 @@ const CategoryList = () => {
         )}
       </div>
       <div>
-        {productListByCategory?.length != 0 && (
+        {selectedCategoryProducts?.products ? (
           <div className="flex gap-x-4">
-            {productListByCategory.map((product) => (
-              // console.log(product)
+            {selectedCategoryProducts?.products?.map((product) => (
               <Product key={product._id} productDetails={product} />
             ))}
           </div>
+        ) : (
+          <p>No products found</p>
         )}
       </div>
     </div>
@@ -237,16 +245,6 @@ const Search = () => {
     </div>
   );
 };
-
-function showProductsByCategory() {
-  return (
-    <>
-      {productListByCategory.map((product) => (
-        <Product />
-      ))}
-    </>
-  );
-}
 
 const ProductCategoryDropdown = (props) => {
   return (
