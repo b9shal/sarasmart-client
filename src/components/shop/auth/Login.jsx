@@ -1,11 +1,10 @@
 import React, { Fragment, useState, useContext } from "react";
-import { loginReq } from "./fetchApi";
 import { LayoutContext } from "../index";
+import { loginReq } from "../../../services/adminService/authService";
 
 const Login = (props) => {
-  const { data: layoutData, dispatch: layoutDispatch } = useContext(
-    LayoutContext
-  );
+  const { data: layoutData, dispatch: layoutDispatch } =
+    useContext(LayoutContext);
 
   const [data, setData] = useState({
     email: "",

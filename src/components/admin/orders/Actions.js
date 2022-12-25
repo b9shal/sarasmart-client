@@ -1,4 +1,7 @@
-import { getAllOrder, deleteOrder } from "./FetchApi";
+import {
+  deleteOrder,
+  getAllOrder,
+} from "../../../services/adminService/orderService";
 
 export const fetchData = async (dispatch) => {
   dispatch({ type: "loading", payload: true });

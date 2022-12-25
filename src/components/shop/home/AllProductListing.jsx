@@ -1,13 +1,13 @@
 import React, { Fragment, useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { getAllProduct } from "../../admin/products/FetchApi";
 import { HomeContext } from "./index";
 import { isWishReq, unWishReq, isWish } from "./Mixins";
 import { baseURL } from "../../../config/httpClient";
+import { getAllProduct } from "../../../services/productService";
 
 const apiURL = baseURL;
 
-// for show more 
+// for show more
 // const productPerRow = 6;
 
 const AllProductListing = (props) => {
@@ -15,12 +15,12 @@ const AllProductListing = (props) => {
   const { products } = data;
   const history = useHistory();
 
-   // product per row
-//    const [next, setNext] = useState(productPerRow);
+  // product per row
+  //    const [next, setNext] = useState(productPerRow);
 
-//    const appendMoreProductRow = () => {
-//      setNext(next + productPerRow);
-//    };
+  //    const appendMoreProductRow = () => {
+  //      setNext(next + productPerRow);
+  //    };
 
   /* WhisList State */
   const [wList, setWlist] = useState(
@@ -156,7 +156,6 @@ const AllProductListing = (props) => {
           No product found
         </div>
       )}
-   
     </Fragment>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
-import { postAddReview, postDeleteReview } from "./FetchApi";
-import { isAuthenticate } from "../auth/fetchApi";
+import { isAuthenticate } from "../../../services/adminService/authService";
+import { postAddReview, postDeleteReview } from "../../../services/userService";
 
 export const Alert = (color, text) => (
   <div className={`bg-${color}-200 px-4 py-2 my-2 rounded`}>{text}</div>

@@ -3,11 +3,14 @@ import { useHistory } from "react-router-dom";
 import { LayoutContext } from "../layout";
 import { subTotal, quantity, totalCost } from "../partials/Mixins";
 
-import { cartListProduct } from "../partials/FetchApi";
-import { getBrainTreeToken, getPaymentProcess } from "./FetchApi";
 import { fetchData, fetchbrainTree, pay } from "./Action";
 
 import DropIn from "braintree-web-drop-in-react";
+import {
+  cartListProduct,
+  getBrainTreeToken,
+  getPaymentProcess,
+} from "../../../services/userService";
 
 export const CheckoutComponent = (props) => {
   const history = useHistory();

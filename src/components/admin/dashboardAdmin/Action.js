@@ -1,10 +1,10 @@
 import {
   DashboardData,
-  postUploadImage,
   getSliderImages,
   postDeleteImage,
-} from "./FetchApi";
-import { getAllOrder } from "../orders/FetchApi.js";
+  postUploadImage,
+} from "../../../services/adminService/dashboardService";
+import { getAllOrder } from "../../../services/adminService/orderService";
 
 export const GetAllData = async (dispatch) => {
   let responseData = await DashboardData();

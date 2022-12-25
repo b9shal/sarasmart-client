@@ -1,6 +1,7 @@
 import React, { Fragment, useContext, useState, useEffect } from "react";
 import { OrderContext } from "./index";
-import { getAllOrder, editCategory } from "./FetchApi";
+import { editCategory } from "../../../services/adminService/categoryService";
+import { getAllOrder } from "../../../services/adminService/orderService";
 
 const UpdateOrderModal = (props) => {
   const { data, dispatch } = useContext(OrderContext);

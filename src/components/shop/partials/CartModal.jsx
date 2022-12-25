@@ -1,11 +1,11 @@
 import React, { Fragment, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { LayoutContext } from "../index";
-import { cartListProduct } from "./FetchApi";
-import { isAuthenticate } from "../auth/fetchApi";
 import { cartList } from "../productDetails/Mixins";
 import { subTotal, quantity, totalCost } from "./Mixins";
 import { baseURL } from "../../../config/httpClient";
+import { cartListProduct } from "../../../services/userService";
+import { isAuthenticate } from "../../../services/adminService/authService";
 
 const apiURL = baseURL;
 

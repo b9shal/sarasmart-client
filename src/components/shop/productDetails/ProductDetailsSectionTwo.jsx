@@ -5,9 +5,8 @@ import ReviewForm from "./ReviewForm";
 import { ProductDetailsContext } from ".";
 import { LayoutContext } from "../layout";
 
-import { isAuthenticate } from "../auth/fetchApi";
-
 import "./style.css";
+import { isAuthenticate } from "../../../services/adminService/authService";
 
 const Menu = () => {
   const { data, dispatch } = useContext(ProductDetailsContext);

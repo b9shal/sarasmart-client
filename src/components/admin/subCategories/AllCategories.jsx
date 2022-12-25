@@ -1,8 +1,9 @@
 import React, { Fragment, useContext, useEffect } from "react";
-import { getAllCategory, deleteCategory } from "./FetchApi";
 import { CategoryContext } from "./index";
 import moment from "moment";
 import { baseURL } from "../../../config/httpClient";
+import { getAllCategory } from "../../../services/categoryService";
+import { deleteCategory } from "../../../services/adminService/categoryService";
 
 const apiURL = baseURL;
 

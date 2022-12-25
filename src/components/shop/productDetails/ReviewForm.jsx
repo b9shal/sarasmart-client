@@ -2,8 +2,8 @@ import React, { Fragment, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Alert, reviewSubmitHanlder } from "./Action";
 import { LayoutContext } from "../layout";
-import { isAuthenticate } from "../auth/fetchApi";
-import { getSingleProduct } from "./FetchApi";
+import { getSingleProduct } from "../../../services/userService";
+import { isAuthenticate } from "../../../services/adminService/authService";
 
 const ReviewForm = (props) => {
   const { data, dispatch } = useContext(LayoutContext);

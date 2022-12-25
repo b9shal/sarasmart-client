@@ -1,9 +1,9 @@
 import {
-  getUserById,
-  updatePersonalInformationFetch,
   getOrderByUser,
+  getUserById,
   updatePassword,
-} from "./FetchApi";
+  updatePersonalInformationFetch,
+} from "../../../services/userService";
 
 export const logout = () => {
   localStorage.removeItem("jwt");

@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import Layout from "../layout";
-import { productByCategory } from "../../admin/products/FetchApi";
 import { baseURL } from "../../../config/httpClient";
+import { productByCategory } from "../../../services/productService";
 
 const apiURL = baseURL;
 

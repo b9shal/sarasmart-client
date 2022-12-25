@@ -1,13 +1,13 @@
 import React, { Fragment, useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { getAllProduct } from "../../admin/products/FetchApi";
 import { HomeContext } from "./index";
 import { isWishReq, unWishReq, isWish } from "./Mixins";
 import { baseURL } from "../../../config/httpClient";
+import { getAllProduct } from "../../../services/productService";
 
 const apiURL = baseURL;
 
-// for show more 
+// for show more
 const productPerRow = 6;
 
 const SingleProduct = (props) => {
@@ -15,12 +15,12 @@ const SingleProduct = (props) => {
   const { products } = data;
   const history = useHistory();
 
-   // product per row
-   const [next, setNext] = useState(productPerRow);
+  // product per row
+  const [next, setNext] = useState(productPerRow);
 
-   const appendMoreProductRow = () => {
-     setNext(next + productPerRow);
-   };
+  const appendMoreProductRow = () => {
+    setNext(next + productPerRow);
+  };
 
   /* WhisList State */
   const [wList, setWlist] = useState(
@@ -156,13 +156,13 @@ const SingleProduct = (props) => {
           No product found
         </div>
       )}
-      <div className="w-full" style={{width: '1340px'}}>
+      <div className="w-full" style={{ width: "1340px" }}>
         {/* load more */}
         {next < products?.length && (
           <button
             className="mt-6 bg-red-600 p-3 text-white text-center flex rounded font-thin hover:bg-gray-600 content-center m-auto"
             onClick={appendMoreProductRow}
-            style={{margin: '0 auto'}}
+            style={{ margin: "0 auto" }}
           >
             Load more
           </button>

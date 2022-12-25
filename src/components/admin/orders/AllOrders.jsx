@@ -7,7 +7,7 @@ import { baseURL } from "../../../config/httpClient";
 
 const apiURL = baseURL;
 
-const AllCategory = (props) => {
+const AllCategory = () => {
   const { data, dispatch } = useContext(OrderContext);
   const { orders, loading } = data;
 

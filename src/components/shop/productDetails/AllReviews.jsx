@@ -5,9 +5,8 @@ import { Alert } from "./Action";
 import moment from "moment";
 import { LayoutContext } from "../layout";
 import { deleteReview } from "./Action";
-import { isAuthenticate } from "../auth/fetchApi";
-import { getSingleProduct } from "./FetchApi";
-
+import { getSingleProduct } from "../../../services/userService";
+import { isAuthenticate } from "../../../services/adminService/authService";
 const AllReviews = (props) => {
   const { data, dispatch } = useContext(LayoutContext);
   const { pRatingsReviews } = data.singleProductDetail;

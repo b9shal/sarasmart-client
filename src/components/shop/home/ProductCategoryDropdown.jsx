@@ -1,15 +1,15 @@
 import React, { Fragment, useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { HomeContext } from "./index";
-import { getAllCategory } from "../../admin/categories/FetchApi";
-import {
-  getAllProduct,
-  productByPrice,
-  productByCategory,
-} from "../../admin/products/FetchApi";
 
 import "./style.css";
 import Product from "../../product/Product";
+import { getAllCategory } from "../../../services/categoryService";
+import {
+  getAllProduct,
+  productByCategory,
+  productByPrice,
+} from "../../../services/productService";
 
 const CategoryList = () => {
   const history = useHistory();
@@ -47,7 +47,9 @@ const CategoryList = () => {
         selectedCategoryId: categoryId,
         products: products.Products,
       });
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (

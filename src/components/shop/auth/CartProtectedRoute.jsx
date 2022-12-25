@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import { isAuthenticate } from "./fetchApi";
+import { isAuthenticate } from "../../../services/adminService/authService";
 
 const CartProtectedRoute = ({ component: Component, ...rest }) => (
   <Route

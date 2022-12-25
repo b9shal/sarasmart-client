@@ -1,6 +1,7 @@
 import React, { Fragment, useContext, useState, useEffect } from "react";
 import { CategoryContext } from "./index";
-import { editCategory, getAllCategory } from "./FetchApi";
+import { getAllCategory } from "../../../services/categoryService";
+import { editCategory } from "../../../services/adminService/categoryService";
 
 const EditCategoryModal = (props) => {
   const { data, dispatch } = useContext(CategoryContext);

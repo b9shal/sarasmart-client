@@ -1,11 +1,12 @@
 import React, { Fragment, useContext } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import "./style.css";
-import logo from "./assets/logo.jpeg"
+import logo from "./assets/logo.jpeg";
 
 import { logout } from "./Action";
 import { LayoutContext } from "../index";
-import { isAdmin } from "../auth/fetchApi";
+import { isAdmin } from "../../../services/adminService/authService";
+// import { isAdmin } from "../auth/fetchApi";
 
 const Navber = (props) => {
   const history = useHistory();
@@ -33,21 +34,23 @@ const Navber = (props) => {
       {/* Navber Section */}
 
       <nav className="fixed top-4 w-full z-20 shadow-lg lg:shadow-none bg-white">
-              {/* top navbar */}
-      <div className="top__nav flex m-100 w-full">
-        <div className="bg-red-600 w-6/12 text-white p-2">
-          <p className="text-center">
-            <span>xxxxxxxx</span> | <span>xxxxxxxxxx</span> (NCELL) Contact Information
-          </p>
+        {/* top navbar */}
+        <div className="top__nav flex m-100 w-full">
+          <div className="bg-red-600 w-6/12 text-white p-2">
+            <p className="text-center">
+              <span>xxxxxxxx</span> | <span>xxxxxxxxxx</span> (NCELL) Contact
+              Information
+            </p>
+          </div>
+          <div className="bg-green-600 w-6/12 text-white p-2">
+            <p>
+              <span className="float-right cursor-pointer mx-4">
+                Track My Order
+              </span>
+            </p>
+          </div>
         </div>
-        <div className="bg-green-600 w-6/12 text-white p-2">
-        <p>
-            <span className="float-right cursor-pointer mx-4">Track My Order</span>
-          </p>
-        </div>
-
-      </div>
-      {/* top navbar end */}
+        {/* top navbar end */}
         <div className="m-4 md:mx-12 md:my-6 grid grid-cols-4 lg:grid-cols-3">
           <div className="hidden lg:block col-span-1 flex text-gray-600 mt-1">
             <span
@@ -91,7 +94,11 @@ const Navber = (props) => {
               className="flex items-left text-center font-bold uppercase text-gray-800 text-2xl cursor-pointer px-2 text-center"
             >
               {/* Sarasmart */}
-              <img src={logo} alt="logo" style={{width: '33%', margin: 'auto'}} />
+              <img
+                src={logo}
+                alt="logo"
+                style={{ width: "33%", margin: "auto" }}
+              />
             </span>
           </div>
           <div
@@ -100,8 +107,11 @@ const Navber = (props) => {
             className="hidden lg:block flex items-left col-span-1 text-center text-gray-800 font-bold tracking-widest uppercase text-2xl cursor-pointer"
           >
             {/* Sarasmart */}
-            <img src={logo} alt="logo" style={{width: '33%', margin: 'auto'}} />
-
+            <img
+              src={logo}
+              alt="logo"
+              style={{ width: "33%", margin: "auto" }}
+            />
           </div>
           <div className="flex items-right col-span-2 lg:col-span-1 flex justify-end">
             {/*  WishList Page Button */}

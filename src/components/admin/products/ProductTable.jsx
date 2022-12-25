@@ -1,8 +1,9 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
-import { getAllProduct, deleteProduct } from "./FetchApi";
 import moment from "moment";
 import { ProductContext } from "./index";
 import { baseURL } from "../../../config/httpClient";
+import { getAllProduct } from "../../../services/productService";
+import { deleteProduct } from "../../../services/adminService/productService";
 
 const apiURL = baseURL;
 

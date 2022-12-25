@@ -5,13 +5,14 @@ import { LayoutContext } from "../layout";
 import Submenu from "./Submenu";
 import ProductDetailsSectionTwo from "./ProductDetailsSectionTwo";
 
-import { getSingleProduct } from "./FetchApi";
-import { cartListProduct } from "../partials/FetchApi";
-
 import { isWishReq, unWishReq, isWish } from "../home/Mixins";
 import { updateQuantity, slideImage, addToCart, cartList } from "./Mixins";
 import { totalCost } from "../partials/Mixins";
 import { baseURL } from "../../../config/httpClient";
+import {
+  cartListProduct,
+  getSingleProduct,
+} from "../../../services/userService";
 
 const apiURL = baseURL;
 
@@ -50,7 +51,7 @@ const ProductDetailsSection = (props) => {
           }); // Dispatch in layout context
           setPimages(responseData.Product.pImages);
           dispatch({ type: "loading", payload: false });
-          layoutDispatch({ type: "inCart", payload: cartList() }); // This function change cart in cart state
+          layoutDispatch({ type: "inCart", payload: cartListProduct() }); // This function change cart in cart state
         }
         if (responseData.error) {
           console.log(responseData.error);

@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { wishListProducts } from "./FetchApi";
 import { baseURL } from "../../../config/httpClient";
+import { wishListProducts } from "../../../services/userService";
 const apiURL = baseURL;
 
 const Product = () => {

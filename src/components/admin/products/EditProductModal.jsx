@@ -1,8 +1,9 @@
 import React, { Fragment, useContext, useState, useEffect } from "react";
 import { ProductContext } from "./index";
-import { editProduct, getAllProduct } from "./FetchApi";
-import { getAllCategory } from "../categories/FetchApi";
 import { baseURL } from "../../../config/httpClient";
+import { getAllCategory } from "../../../services/categoryService";
+import { getAllProduct } from "../../../services/productService";
+import { editProduct } from "../../../services/adminService/productService";
 const apiURL = baseURL;
 
 const EditProductModal = (props) => {

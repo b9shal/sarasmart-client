@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { signupReq } from "./fetchApi";
+import { signupReq } from "../../../services/adminService/authService";
 
 const Signup = (props) => {
   const [data, setData] = useState({

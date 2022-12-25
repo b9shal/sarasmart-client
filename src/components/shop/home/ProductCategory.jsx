@@ -1,10 +1,7 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment } from "react";
 import ProductCategoryDropdown from "./ProductCategoryDropdown";
-import { HomeContext } from "./index";
 
-const ProductCategory = (props) => {
-  const { data, dispatch } = useContext(HomeContext);
-
+const ProductCategory = () => {
   return (
     <Fragment>
       <div className="flex justify-between font-medium">

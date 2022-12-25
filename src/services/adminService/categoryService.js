@@ -1,4 +1,4 @@
-import { httpClient } from "../../../config/httpClient";
+import { httpClient } from "../../config/httpClient";
 
 const BearerToken = () =>
   localStorage.getItem("jwt")
@@ -10,15 +10,6 @@ const Headers = () => {
       token: `Bearer ${BearerToken()}`,
     },
   };
-};
-
-export const getAllCategory = async () => {
-  try {
-    let res = await httpClient.get(`/api/category/all-category`, Headers());
-    return res.data;
-  } catch (error) {
-    console.log(error);
-  }
 };
 
 export const createCategory = async ({

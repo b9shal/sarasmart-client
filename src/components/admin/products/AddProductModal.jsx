@@ -1,8 +1,8 @@
 import React, { Fragment, useContext, useState, useEffect } from "react";
 import { ProductContext } from "./index";
-import { createProduct, getAllProduct } from "./FetchApi";
-import { getAllCategory } from "../categories/FetchApi";
-
+import { getAllProduct } from "../../../services/productService";
+import { createProduct } from "../../../services/adminService/productService";
+import { getAllCategory } from "../../../services/categoryService";
 const AddProductDetail = ({ categories }) => {
   const { data, dispatch } = useContext(ProductContext);
 
