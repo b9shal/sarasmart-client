@@ -7,10 +7,20 @@ import { baseURL } from "../../../config/httpClient";
 
 const apiURL = baseURL;
 
+// for show more 
+const productPerRow = 6;
+
 const SingleProduct = (props) => {
   const { data, dispatch } = useContext(HomeContext);
   const { products } = data;
   const history = useHistory();
+
+   // product per row
+   const [next, setNext] = useState(productPerRow);
+
+   const appendMoreProductRow = () => {
+     setNext(next + productPerRow);
+   };
 
   /* WhisList State */
   const [wList, setWlist] = useState(
@@ -60,17 +70,21 @@ const SingleProduct = (props) => {
   return (
     <Fragment>
       {products && products.length > 0 ? (
-        products.map((item, index) => {
+        products?.slice(0, next)?.map((item, index) => {
           return (
             <Fragment key={index}>
-              <div className="relative col-span-1 m-2 hover:shadow-md hover:scale-50">
+              <div className="relative col-span-1 m-2 hover:shadow-md hover:scale-50 h-64">
+                {/* offer */}
+                <span className="product-label absolute top-0 overflow-hidden z-10 w-20 h-20 left-0">
+                  <span>{item.pOffer} % OFF</span>
+                </span>
                 <img
                   onClick={(e) => history.push(`/products/${item._id}`)}
-                  className="w-full object-cover object-center cursor-pointer"
+                  className="w-full  object-center cursor-pointer h-48 object-contain"
                   src={`${apiURL}/uploads/products/${item.pImages[0]}`}
                   alt=""
                 />
-                <div className="flex items-center justify-between mt-2">
+                <div className="flex items-center justify-between mt-2 px-1">
                   <div className="text-gray-600 font-light truncate">
                     {item.pName}
                   </div>
@@ -96,7 +110,7 @@ const SingleProduct = (props) => {
                     </span>
                   </div>
                 </div>
-                <div>${item.pPrice}.00</div>
+                <div>Rs. {item.pPrice}.00</div>
                 {/* WhisList Logic  */}
                 <div className="absolute top-0 right-0 mx-2 my-2 md:mx-4">
                   <svg
@@ -142,6 +156,18 @@ const SingleProduct = (props) => {
           No product found
         </div>
       )}
+      <div className="w-full" style={{width: '1340px'}}>
+        {/* load more */}
+        {next < products?.length && (
+          <button
+            className="mt-6 bg-red-600 p-3 text-white text-center flex rounded font-thin hover:bg-gray-600 content-center m-auto"
+            onClick={appendMoreProductRow}
+            style={{margin: '0 auto'}}
+          >
+            Load more
+          </button>
+        )}
+      </div>
     </Fragment>
   );
 };

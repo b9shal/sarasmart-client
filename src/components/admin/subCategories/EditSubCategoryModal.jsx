@@ -2,7 +2,7 @@ import React, { Fragment, useContext, useState, useEffect } from "react";
 import { CategoryContext } from "./index";
 import { editCategory, getAllCategory } from "./FetchApi";
 
-const EditCategoryModal = (props) => {
+const EditSubCategoryModal = (props) => {
   const { data, dispatch } = useContext(CategoryContext);
 
   const [des, setDes] = useState("");
@@ -131,4 +131,4 @@ const EditCategoryModal = (props) => {
   );
 };
 
-export default EditCategoryModal;
+export default EditSubCategoryModal;

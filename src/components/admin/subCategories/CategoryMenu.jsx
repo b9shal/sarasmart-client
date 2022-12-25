@@ -1,7 +1,7 @@
 import React, { Fragment, useContext } from "react";
 import { CategoryContext } from "./index";
-import AddCategoryModal from "./AddCategoryModal";
-import EditCategoryModal from "./EditCategoryModal";
+import AddSubCategoryModal from "./AddSubCategoryModal";
+import EditSubCategoryModal from "./EditSubCategoryModal";
 
 const CategoryMenu = (props) => {
   const { dispatch } = useContext(CategoryContext);
@@ -30,11 +30,15 @@ const CategoryMenu = (props) => {
                 clipRule="evenodd"
               />
             </svg>
-            Add Category
+            <button disabled>
+            Add Sub Category
+            </button>
           </div>
+        <span className="bg-red-400 p-2 rounded text-white">work on progress so button has been disabled</span>
+
         </div>
-        <AddCategoryModal />
-        <EditCategoryModal />
+        <AddSubCategoryModal />
+        <EditSubCategoryModal />
       </div>
     </Fragment>
   );
