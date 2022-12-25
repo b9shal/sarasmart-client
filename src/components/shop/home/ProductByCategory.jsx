@@ -13,7 +13,7 @@ const Submenu = ({ category }) => {
       {/* Submenu Section */}
       <section className="mx-4 mt-24 md:mx-12 md:mt-32 lg:mt-24">
         <div className="flex justify-between items-center">
-          <div className="text-sm flex space-x-3">
+          <div className="text-sm flex space-x-3 mt-16">
             <span
               className="hover:text-yellow-700 cursor-pointer"
               onClick={(e) => history.push("/")}

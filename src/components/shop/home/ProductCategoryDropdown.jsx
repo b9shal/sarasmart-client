@@ -188,7 +188,7 @@ const Search = () => {
       <input
         value={search}
         onChange={(e) => searchHandle(e)}
-        className="px-4 text-xl py-4 focus:outline-none"
+        className="px-4 text-xl py-4 focus:outline-none flex-1"
         type="text"
         placeholder="Search products..."
       />
