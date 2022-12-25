@@ -4,7 +4,7 @@ import Slider from "./Slider";
 import ProductCategory from "./ProductCategory";
 import { homeState, homeReducer } from "./HomeContext";
 import SingleProduct from "./SingleProduct";
-import {CategoryAds, ProductAds} from "./ProductAds";
+import { CategoryAds, ProductAds } from "./ProductAds";
 import AllProductListing from "./AllProductListing";
 
 export const HomeContext = createContext();
@@ -16,7 +16,9 @@ const HomeComponent = () => {
       {/* all products */}
       <section className="section-title m-4 md:mx-8 md:my-6">
         <div className="container">
-          <h1 className="container mx-auto  text-2xl"><span></span>All Products</h1>
+          <h1 className="container mx-auto  text-2xl">
+            <span></span>All Products
+          </h1>
         </div>
       </section>
       <section className="m-4 md:mx-8 md:my-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
@@ -25,10 +27,9 @@ const HomeComponent = () => {
       {/* all products end */}
       {/* productAds */}
       <section className="m-4 md:mx-8 md:my-6">
-      <ProductAds />
-      <span className="p-1"></span>
-      <ProductAds />
-
+        <ProductAds />
+        <span className="p-1"></span>
+        <ProductAds />
       </section>
       {/* Category, Search & Filter Section */}
       <section className="m-4 md:mx-8 md:my-6">
@@ -41,9 +42,9 @@ const HomeComponent = () => {
         </div>
       </section>
 
-      <section className="m-4 md:mx-8 md:my-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+      {/* <section className="m-4 md:mx-8 md:my-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
         <SingleProduct />
-      </section>
+      </section> */}
 
       {/* categoryAds */}
       <section className="section-title m-4 md:mx-8 md:my-6">
@@ -51,9 +52,9 @@ const HomeComponent = () => {
           <h1 className="tags">
             <span></span>
             Featured Category
-            </h1>
+          </h1>
         </div>
-      <CategoryAds />
+        <CategoryAds />
       </section>
     </Fragment>
   );

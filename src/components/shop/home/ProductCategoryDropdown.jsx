@@ -2,13 +2,21 @@ import React, { Fragment, useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { HomeContext } from "./index";
 import { getAllCategory } from "../../admin/categories/FetchApi";
-import { getAllProduct, productByPrice } from "../../admin/products/FetchApi";
+import {
+  getAllProduct,
+  productByPrice,
+  productByCategory,
+} from "../../admin/products/FetchApi";
+
 import "./style.css";
+import Product from "../../product/Product";
 
 const CategoryList = () => {
   const history = useHistory();
   const { data } = useContext(HomeContext);
   const [categories, setCategories] = useState(null);
+
+  const [productListByCategory, setProductListByCategory] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -25,6 +33,16 @@ const CategoryList = () => {
     }
   };
 
+  async function fetchProductsByCategory(categoryId) {
+    try {
+      const products = await productByCategory(categoryId);
+
+      console.log(products.Products);
+
+      setProductListByCategory(products.Products);
+    } catch (err) {}
+  }
+
   return (
     <div className={`${data.categoryListDropdown ? "" : "hidden"} my-4`}>
       <hr />
@@ -34,9 +52,7 @@ const CategoryList = () => {
             return (
               <Fragment key={index}>
                 <div
-                  onClick={(e) =>
-                    history.push(`/products/category/${item._id}`)
-                  }
+                  onClick={() => fetchProductsByCategory(item._id)}
                   className="col-span-1 m-2 flex flex-col items-center justify-center space-y-2 cursor-pointer"
                 >
                   {/* <img
@@ -50,6 +66,16 @@ const CategoryList = () => {
           })
         ) : (
           <div className="text-xl text-center my-4">No Category</div>
+        )}
+      </div>
+      <div>
+        {productListByCategory?.length != 0 && (
+          <div className="flex gap-x-4">
+            {productListByCategory.map((product) => (
+              // console.log(product)
+              <Product key={product._id} productDetails={product} />
+            ))}
+          </div>
         )}
       </div>
     </div>
@@ -211,6 +237,16 @@ const Search = () => {
     </div>
   );
 };
+
+function showProductsByCategory() {
+  return (
+    <>
+      {productListByCategory.map((product) => (
+        <Product />
+      ))}
+    </>
+  );
+}
 
 const ProductCategoryDropdown = (props) => {
   return (
