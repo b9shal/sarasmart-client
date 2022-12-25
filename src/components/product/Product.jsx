@@ -5,8 +5,6 @@ export default function Product({ productDetails }) {
   const { pImages, pOffer, pName, pRatingsReviews, pPrice, _id } =
     productDetails;
 
-  console.log(productDetails);
-
   const apiURL = baseURL;
 
   const [wList, setWlist] = useState();

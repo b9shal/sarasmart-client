@@ -10,10 +10,17 @@ import {
   ProductByCategory,
   CheckoutPage,
 } from "./shop";
-import { DashboardAdmin, Categories,SubCategories, Products, Orders } from "./admin";
+import {
+  DashboardAdmin,
+  Categories,
+  SubCategories,
+  Products,
+  Orders,
+} from "./admin";
 import { UserProfile, UserOrders, SettingUser } from "./shop/dashboardUser";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Contact } from "./shop/partials";
 
 /* Routing All page will be here */
 const Routes = (props) => {
@@ -47,7 +54,7 @@ const Routes = (props) => {
           path="/admin/dashboard/categories"
           component={Categories}
         />
-         <AdminProtectedRoute
+        <AdminProtectedRoute
           exact={true}
           path="/admin/dashboard/subcategories"
           component={SubCategories}
@@ -82,6 +89,7 @@ const Routes = (props) => {
         />
         {/* User Dashboard End */}
 
+        <Route exact path="/contact-us" component={Contact} />
         {/* 404 Page */}
         <Route component={PageNotFound} />
       </Switch>
