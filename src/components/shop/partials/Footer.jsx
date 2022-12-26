@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import moment from "moment";
 import ScrollToTop from "react-scroll-to-top";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, NavLink } from "react-router-dom";
 
 const Footer = (props) => {
   const history = useHistory();
@@ -47,7 +47,7 @@ const Footer = (props) => {
                             <span className='h-0.5  w-14 bg-white'></span>
                         </div>
                         <div className='flex flex-col space-y-2'>
-                            <p className='text-white  capitalize hover:cursor-pointer'>- about us</p>
+                            <p className='text-white  capitalize hover:cursor-pointer'><Link to='about-us'> - about us</Link></p>
                             <p className='text-white  capitalize hover:cursor-pointer'>- privacy policy</p>
                             <p className='text-white  capitalize hover:cursor-pointer'>
                                 <Link to='/terms-and-condition' >
@@ -76,7 +76,7 @@ const Footer = (props) => {
                         </div>
                         <div className='flex flex-col space-y-2'>
                             <p className='text-white  capitalize hover:cursor-pointer'>- login</p>
-                            <p className='text-white  capitalize hover:cursor-pointer'> <Link to='user/profile'> - Account</Link></p>
+                            <p className='text-white  capitalize hover:cursor-pointer'> - Account </p>
                             <p className='text-white  capitalize hover:cursor-pointer'>- cart</p>
                             <p className='text-white  capitalize hover:cursor-pointer'><Link to='wish-list'> - wishlist</Link> </p>
                         </div>
