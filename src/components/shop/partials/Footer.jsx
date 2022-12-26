@@ -1,8 +1,11 @@
 import React, { Fragment } from "react";
 import moment from "moment";
 import ScrollToTop from "react-scroll-to-top";
+import { Link, useHistory } from "react-router-dom";
 
 const Footer = (props) => {
+  const history = useHistory();
+
   return (
     <Fragment>
        <div className='w-full flex flex-col bg-red-600 footer-section'>
@@ -46,7 +49,12 @@ const Footer = (props) => {
                         <div className='flex flex-col space-y-2'>
                             <p className='text-white  capitalize hover:cursor-pointer'>- about us</p>
                             <p className='text-white  capitalize hover:cursor-pointer'>- privacy policy</p>
-                            <p className='text-white  capitalize hover:cursor-pointer'>- terms & condition</p>
+                            <p className='text-white  capitalize hover:cursor-pointer'>
+                                <Link to='/terms-and-condition' >
+                                - terms & condition
+                                </Link>
+                                
+                                </p>
                         </div>
                     </div>
 
@@ -68,9 +76,9 @@ const Footer = (props) => {
                         </div>
                         <div className='flex flex-col space-y-2'>
                             <p className='text-white  capitalize hover:cursor-pointer'>- login</p>
-                            <p className='text-white  capitalize hover:cursor-pointer'>- register</p>
+                            <p className='text-white  capitalize hover:cursor-pointer'> <Link to='user/profile'> - Account</Link></p>
                             <p className='text-white  capitalize hover:cursor-pointer'>- cart</p>
-                            <p className='text-white  capitalize hover:cursor-pointer'>- wishlist</p>
+                            <p className='text-white  capitalize hover:cursor-pointer'><Link to='wish-list'> - wishlist</Link> </p>
                         </div>
                     </div>
 
@@ -106,7 +114,7 @@ const Footer = (props) => {
                     </div>
                 </div>
 
-                <div className='w-full h-8 bg-white flex items-center justify-center'>
+                <div className='w-full md:h-8 bg-white flex flex-nowrap items-center justify-center'>
                     <span className='text-red-600 text-base capitalize'>we accept: &nbsp;</span>
                     <span className='text-gray-700 text-base capitalize'>cash on delivery , esewa, connectIPS, fonepay</span>
                 </div>

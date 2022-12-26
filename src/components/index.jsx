@@ -21,6 +21,7 @@ import { UserProfile, UserOrders, SettingUser } from "./shop/dashboardUser";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Contact } from "./shop/partials";
+import TermsAndCondition from "./shop/partials/TermsAndCondition";
 
 /* Routing All page will be here */
 const Routes = (props) => {
@@ -90,6 +91,8 @@ const Routes = (props) => {
         {/* User Dashboard End */}
 
         <Route exact path="/contact-us" component={Contact} />
+        <Route exact path="/terms-and-condition" component={TermsAndCondition} />
+
         {/* 404 Page */}
         <Route component={PageNotFound} />
       </Switch>
