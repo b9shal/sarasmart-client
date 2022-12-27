@@ -37,14 +37,14 @@ const Navber = (props) => {
         {/* top navbar */}
         <div className="top__nav flex m-100 w-full">
           <div className="bg-red-600 w-6/12 text-white p-2">
-            <p className="text-center">
+            <p className="text-center font-thin">
               <span>xxxxxxxx</span> | <span>xxxxxxxxxx</span> (NCELL) Contact
               Information
             </p>
           </div>
           <div className="bg-green-600 w-6/12 text-white p-2">
             <p>
-              <span className="float-right cursor-pointer mx-4">
+              <span className="float-right cursor-pointer mx-4 font-thin">
                 Track My Order
               </span>
             </p>
@@ -70,6 +70,12 @@ const Navber = (props) => {
               onClick={(e) => history.push("/contact-us")}
             >
               Contact us
+            </span>
+            <span
+              className="hover:bg-gray-200 px-4 py-3 rounded-lg font-light tracking-widest hover:text-gray-800 cursor-pointer"
+              onClick={(e) => history.push("/terms-and-condition")}
+            >
+              Terms & Condition
             </span>
           </div>
           <div className="col-span-2 lg:hidden flex justify-items-stretch	 items-center">
